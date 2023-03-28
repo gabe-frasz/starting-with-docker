@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  api:
+    build: ./api
+    hostname: localhost
+    container_name: api_c
+    ports:
+      - "5000:5000"
+
+  web:
+    build: ./web
+    hostname: localhost
+    container_name: web_c
+    ports:
+      - "3000:4173"
+      - "3001:5173"
