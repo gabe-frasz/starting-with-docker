@@ -2,11 +2,16 @@ version: "3.8"
 
 services:
   api:
-    build: ./api
+    build:
+      context: ./api
+      target: dev
     hostname: localhost
     container_name: api_c
     ports:
       - "5000:5000"
+    volumes:
+      - ./api:/app
+      - /app/node_modules
 
   web:
     build: ./web
@@ -15,3 +20,6 @@ services:
     ports:
       - "3000:4173"
       - "3001:5173"
+    volumes:
+      - ./web:/app
+      - /app/node_modules
